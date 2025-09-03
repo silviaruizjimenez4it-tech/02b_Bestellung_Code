@@ -40,3 +40,80 @@ if (Bestellvorgang fortsetzen? (Eingabe j) ?)
     System.out.println(Hier ist Ihre Bestellung: food);
 }
 System.out.println(Vielen Dank, und Auf Wiedersehen!);
+
+
+
+
+
+
+
+START
+
+    // Preise festlegen
+    preisHamburger = 3.50
+    preisCheeseburger = 4.00
+    preisChiliBurger = 4.50
+    preisPommes = 2.50
+    preisCola = 2.00
+    preisMenu = 7.50  // Menü: Burger + Pommes + Getränk
+
+    // Variablen für Mengen
+    anzahlHamburger = 0
+    anzahlCheeseburger = 0
+    anzahlChiliBurger = 0
+    anzahlPommes = 0
+    anzahlCola = 0
+    anzahlMenu = 0
+
+    WHILE Bestellung nicht abgeschlossen
+
+        PRINT "Einzelartikel (1) oder Menü (2) oder Beenden (0)?"
+        eingabe = NutzerInput
+
+        IF eingabe == 0
+            BREAK  // Bestellung beenden
+
+        ELSE IF eingabe == 1
+            // Einzelartikel auswählen
+            PRINT "Was möchten Sie bestellen? Hamburger(1), Cheeseburger(2), ChiliBurger(3), Pommes(4), Cola(5)"
+            artikel = NutzerInput
+
+            PRINT "Wie viele möchten Sie?"
+            menge = NutzerInput
+
+            SWITCH artikel
+                CASE 1: anzahlHamburger += menge
+                CASE 2: anzahlCheeseburger += menge
+                CASE 3: anzahlChiliBurger += menge
+                CASE 4: anzahlPommes += menge
+                CASE 5: anzahlCola += menge
+            END SWITCH
+
+        ELSE IF eingabe == 2
+            // Menü auswählen
+            PRINT "Wie viele Menüs möchten Sie?"
+            mengeMenu = NutzerInput
+            anzahlMenu += mengeMenu
+
+    END WHILE
+
+    // Gesamtsumme berechnen
+    gesamt = (anzahlHamburger * preisHamburger) +
+             (anzahlCheeseburger * preisCheeseburger) +
+             (anzahlChiliBurger * preisChiliBurger) +
+             (anzahlPommes * preisPommes) +
+             (anzahlCola * preisCola) +
+             (anzahlMenu * preisMenu)
+
+    // Bestellung ausgeben
+    PRINT "Ihre Bestellung:"
+    PRINT "Hamburger: " + anzahlHamburger + " Stück"
+    PRINT "Cheeseburger: " + anzahlCheeseburger + " Stück"
+    PRINT "ChiliBurger: " + anzahlChiliBurger + " Stück"
+    PRINT "Pommes: " + anzahlPommes + " Stück"
+    PRINT "Cola: " + anzahlCola + " Stück"
+    PRINT "Menü: " + anzahlMenu + " Stück"
+
+    PRINT "Gesamtpreis: " + gesamt
+
+END
