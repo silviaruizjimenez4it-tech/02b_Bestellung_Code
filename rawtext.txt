@@ -117,3 +117,58 @@ START
     PRINT "Gesamtpreis: " + gesamt
 
 END
+
+
+private static double bestelleBurger(Scanner sc, StringBuilder ausgabe) { ... }
+private static double bestelleBeilagen(Scanner sc, StringBuilder ausgabe) { ... }
+private static double bestelleGetraenke(Scanner sc, StringBuilder ausgabe) { ... }
+private static double bestelleMenues(Scanner sc, StringBuilder ausgabe) { ... }
+
+
+
+Map<String, Double> preise = new HashMap<>();
+preise.put("Hamburger", 3.50);
+preise.put("Cheeseburger", 4.00);
+preise.put("Chilliburger", 4.50);
+preise.put("Pommes", 2.50);
+...
+
+
+class Bestellposten {
+    String name;
+    int menge;
+    double preisProStueck;
+
+    Bestellposten(String name, int menge, double preis) {
+        this.name = name;
+        this.menge = menge;
+        this.preisProStueck = preis;
+    }
+
+    double getGesamtpreis() {
+        return menge * preisProStueck;
+    }
+
+    @Override
+    public String toString() {
+        return menge + "x " + name + " -> " + getGesamtpreis() + " €";
+    }
+}
+
+
+
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    Bestellung bestellung = new Bestellung();
+
+    bestellung.addMenues(sc);
+    bestellung.addBurger(sc);
+    bestellung.addBeilagen(sc);
+    bestellung.addGetraenke(sc);
+
+    bestellung.printRechnung();
+
+    sc.close();
+}
+
+
