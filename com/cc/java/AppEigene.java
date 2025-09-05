@@ -30,16 +30,18 @@ public class AppEigene {
         StringBuilder bestellungDrinks   = new StringBuilder();
         StringBuilder bestellungMenues   = new StringBuilder();
 
+        System.out.println("----------------------------");
         System.out.println("Herzlich Willkommen bei MD, Ihre Bestellung bitte!");
 
         // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
-        System.out.print("Möchten Sie Menüs hinzufügen? (j/n): ");
+        System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
         if (ja(sc.nextLine())) {
             while (true) {
                 System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
                 int mengeMenu = readInt(sc);
                 if (mengeMenu <= 0) break;
 
+                System.out.println("----------------------------");
                 // Burgerwahl fürs Menü
                 System.out.println("Bitte wählen Sie den Burger für das Menü:");
                 System.out.println("1) Hamburger  2) Cheeseburger  3) Chilliburger");
@@ -60,6 +62,7 @@ public class AppEigene {
                         break;
                 }
 
+                System.out.println("----------------------------");
                 // Beilagewahl fürs Menü
                 System.out.println("Bitte wählen Sie die Beilage für das Menü:");
                 System.out.println("1) Pommes  2) Chili-Cheese Fries  3) Caesar Salat");
@@ -80,6 +83,7 @@ public class AppEigene {
                         break;
                 }
 
+                System.out.println("----------------------------");
                 // Getränkewahl fürs Menü
                 System.out.println("Bitte wählen Sie das Getränk für das Menü:");
                 System.out.println("1) Cola  2) Fanta  3) Sprite");
@@ -110,6 +114,7 @@ public class AppEigene {
         }
 
         // -------- Burger (mehrfach, mit Menge) --------
+       System.out.print("\nMöchten Sie Burger extra bestellen? (j/n): ");
         System.out.println("\nBurger-Auswahl (0 = Ende):");
         while (true) {
             System.out.println("1) Hamburger (" + preisHamburger + " €)");
@@ -220,7 +225,9 @@ public class AppEigene {
         if (bestellungDrinks.length()   > 0) System.out.println("Getränke:\n" + bestellungDrinks.toString().trim()   + " -> " + round(summeDrink)   + " €");
         System.out.println("----------------------------");
         System.out.println("Gesamtpreis: " + round(gesamt) + " €");
+        System.out.println("Bitte bezahlen Sie den Gesamtpreis: " + round(gesamt) + " € an der Kasse.");
         System.out.println("Vielen Dank für Ihre Bestellung!");
+
 
         sc.close();
     }
