@@ -6,29 +6,71 @@ public class AppEigene {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Preise
-        final double preisHamburger     = 3.50;
-        final double preisCheeseburger  = 4.00;
-        final double preisChiliBurger   = 4.50;
-        final double preisPommes        = 2.50;
-        final double preisChiliFries    = 3.00;
-        final double preisSalat         = 3.50;
-        final double preisCola          = 2.00;
-        final double preisFanta         = 2.00;
-        final double preisSprite        = 2.00;
-        final double preisMenu          = 7.50; // Menü: 1 Burger + 1 Beilage + 1 Getränk
+        // Preise food
+        final double preisHamburger           = 3.50;
+        final double preisCheeseburger        = 4.00;
+        final double preisChiliBurger         = 4.50;
+        final double preisChickenBurger       = 4.00;
+        final double preisDobbleburger        = 7.00;
+        final double preisChickenNugget(20er) = 9.75;
+
+        // Preise Beilagen
+        final double preisPommes              = 3.50;
+        final double preisCurlyFries          = 3.50;
+        final double preisKroketten           = 3.50;
+        final double preisChili_Cheese_Fries  = 4.00;
+        final double preisCesarSalat          = 3.00;
+
+        // Preise Saucen
+        final double preisKetchup             = 0.50;
+        final double preisMayonaise           = 0.50;
+        final double preisRemoulade           = 0.50;
+        final double preisCurry               = 0.50;
+        final double preisBBQ                 = 0.50;
+        final double preisChiliCheese         = 0.50;
+        final double preisSuessSauer          = 0.50;
+        
+        // Preise Getränke
+        final double preisCola                = 2.00;
+        final double preisFanta               = 2.00;
+        final double preisSprite              = 2.00;
+        final double preisEistee              = 2.00;
+        final double preisKaffee              = 1.50;
+        final double preisBier                = 3.00;
+        final double preisWasser              = 1.50;
+        final double preisSaft                = 1.50;
+
+        // Preise Dessert
+        final double preisSoftEisSchoko       = 2.50;
+        final double preisSoftEisErdbeer      = 2.50;
+        final double preisSoftEisKaramell     = 2.50;
+        final double preisHotBrownie          = 3.50;
+        final double preisHotBrownieEis       = 5.00;
+        final double preisObstsalat           = 2.00;
+        final double preisChurrosChocolate    = 4.50;
+        
+        
+        // Menü: 1 Burger + 1 Beilage + 1 Getränk
+        final double preisMenu1               = 8.50;
+        final double preisMenu2               = 10.50;
 
         // Summen
-        double summeBurger   = 0.0;
-        double summeBeilage  = 0.0;
-        double summeDrink    = 0.0;
-        double summeMenu     = 0.0;
+        double summeBurger                    = 0.0;
+        double summeBeilage                   = 0.0;
+        double summeDrink                     = 0.0;
+        double summeMenu                      = 0.0;
+        double summeSaucen                    = 0.0;
+        double summeDessert                   = 0.0;
+       
 
         // Bestelllisten
         StringBuilder bestellungBurger   = new StringBuilder();
         StringBuilder bestellungBeilagen = new StringBuilder();
         StringBuilder bestellungDrinks   = new StringBuilder();
         StringBuilder bestellungMenues   = new StringBuilder();
+        StringBuilder bestellungSaucen   = new StringBuilder();
+        StringBuilder bestellungDessert  = new StringBuilder();
+        
 
         System.out.println("----------------------------");
         System.out.println("Herzlich Willkommen bei MD, Ihre Bestellung bitte!");
@@ -40,7 +82,14 @@ public class AppEigene {
                 System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
                 int mengeMenu = readInt(sc);
                 if (mengeMenu <= 0) break;
-
+                bestellungMenues.append(mengeMenu)
+                        .append("x Menü (")
+                        .append(burgerName).append(" + ")
+                        .append(beilageName).append(" + ")
+                        .append(drinkName).append(")\n");
+                summeMenu += mengeMenu * preisMenu;
+            }
+        }
                 System.out.println("----------------------------");
                 // Burgerwahl fürs Menü
                 System.out.println("Bitte wählen Sie den Burger für das Menü:");
@@ -104,6 +153,14 @@ public class AppEigene {
                         break;
                 }
 
+        System.out.println("----------------------------");
+        // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
+        System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
+        if (ja(sc.nextLine())) {
+            while (true) {
+                System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
+                int mengeMenu = readInt(sc);
+                if (mengeMenu <= 0) break;
                 bestellungMenues.append(mengeMenu)
                         .append("x Menü (")
                         .append(burgerName).append(" + ")
