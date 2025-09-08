@@ -21,7 +21,7 @@ public class AppEigene {
         final double preisChiliCheeseFries    = 4.00;
         final double preisCesarSalat          = 3.00;
 
-        // Preise Saucen- teilweise integriert
+        // Preise Saucen- integriert
         final double preisKetchup             = 0.50;
         final double preisMayonaise           = 0.50;
         final double preisRemoulade           = 0.50;
@@ -40,7 +40,7 @@ public class AppEigene {
         final double preisWasser              = 1.50;
         final double preisSaft                = 1.50;
 
-        // Preise Dessert- noch nicht integriert
+        // Preise Dessert- integriert
         final double preisSoftEisSchoko       = 2.50;
         final double preisSoftEisErdbeer      = 2.50;
         final double preisSoftEisKaramell     = 2.50;
@@ -50,9 +50,9 @@ public class AppEigene {
         final double preisChurrosChocolate    = 4.50;
         
         
-        // Menü: 1 Burger + 1 Beilage + 1 Getränk
+        // Menü: 1 Burger + 1 Beilage + 1 Sauce + 1 Getränk
         final double preisMenu1               = 8.50;    // integriert
-        final double preisMenu2               = 10.50;   // noch nicht integriert
+        final double preisMenu2               = 11.50;   // noch nicht integriert
 
         // Summen
         double summeBurger                    = 0.0;
@@ -94,7 +94,7 @@ public class AppEigene {
                 System.out.println("----------------------------");
                 // Burgerwahl fürs Menü
                 System.out.println("Bitte wählen Sie den Burger für das Menü:");
-                System.out.println("1) Hamburger  2) Cheeseburger  3) Chilliburger  4) Chickenburger  5)Dobbleburger   6) 20 Chicken Nuggets");
+                System.out.println("1) Hamburger  2) Cheeseburger  3) Chilliburger  4) Chickenburger");
                 int burgerChoice = readInt(sc);
                 String burgerName;
                 switch (burgerChoice) {
@@ -109,12 +109,6 @@ public class AppEigene {
                         break;
                     case 4:
                         burgerName = "Chickenburger";
-                        break;
-                    case 5:
-                        burgerName = "Dobbleburger";
-                        break;
-                    case 6:
-                        burgerName = "ChickenNuggets";
                         break;
                     default:
                         burgerName = "UnbekannterBurger";
@@ -327,6 +321,59 @@ public class AppEigene {
             }
         }
 
+        // -------- Sauce (mehrfach) --------
+        System.out.print("\nMöchten Sie Saucen extra dazu bestellen? (j/n): ");
+        if (ja(sc.nextLine())) {
+            while (true) {
+                System.out.println("1) Ketchup (" + preisKetchup + " €)");
+                System.out.println("2) Mayonaise (" + preisMayonaise + " €)");
+                System.out.println("3) Remoulade (" + preisRemoulade + " €)");
+                System.out.println("4) Curry (" + preisCurry + " €)");
+                System.out.println("5) BBQ (" + preisBBQ + " €)");
+                System.out.println("6) Chili Cheese (" + preisChiliCheese + " €)");
+                System.out.println("7) Süß Sauer (" + preisSuessSauer + " €)");
+                System.out.print("Ihre Wahl (0 = Ende): ");
+                int wahl = readInt(sc);
+                if (wahl == 0) break;
+
+                System.out.print("Menge: ");
+                int menge = readInt(sc);
+                if (menge <= 0) continue;
+
+                switch (wahl) {
+                    case 1:
+                        bestellungSauces.append(menge).append("x Ketchup\n");
+                        summeSauce += menge * preisKetchup;
+                        break;
+                    case 2:
+                        bestellungSauces.append(menge).append("x Mayonaise\n");
+                        summeSauce += menge * preisMayonaise;
+                        break;
+                    case 3:
+                        bestellungSauces.append(menge).append("x Remoulade\n");
+                        summeSauce += menge * preisRemoulade;
+                        break;
+                    case 4:
+                        bestellungSauces.append(menge).append("x Curry\n");
+                        summeSauce += menge * preisCurry;
+                        break;
+                    case 5:
+                        bestellungSauces.append(menge).append("x BBQ\n");
+                        summeSauce += menge * preisBBQ;
+                        break;
+                    case 6:
+                        bestellungSauces.append(menge).append("x Chili Cheese\n");
+                        summeSauce += menge * preisChiliCheese;
+                    case 7:
+                        bestellungSauces.append(menge).append("x Süß Sauer\n");
+                        summeSauce += menge * preisSuessSauer;
+                        break;
+                    default:
+                        System.out.println("Ungültige Auswahl.");
+                }
+            }
+        }
+        
         // -------- Getränke (mehrfach) --------
         System.out.print("\nMöchten Sie Getränke extra dazu bestellen? (j/n): ");
         if (ja(sc.nextLine())) {
@@ -385,6 +432,59 @@ public class AppEigene {
             }
         }
 
+         // -------- Dessert (mehrfach) --------
+        System.out.print("\nDarf ich Ihnen noch ein Dessert anbieten? (j/n): ");
+        if (ja(sc.nextLine())) {
+            while (true) {
+                System.out.println("1) Softeis Schokolade (" + preisSoftEisSchoko + " €)");
+                System.out.println("2) Softeis Erdbeere (" + preisSoftEisErdbeere + " €)");
+                System.out.println("3) Softeis Karamell (" + preisSoftEisKaramell + " €)");
+                System.out.println("4) Hot Brownie (" + preisEistee + " €)");
+                System.out.println("5) Hot Brownie mit Eis (" + preisHotBrownie + " €)");
+                System.out.println("6) Obstsalat (" + preisHotBrownieEis + " €)");
+                System.out.println("7) Churros Chocolate (" + preisChurrosChocolate + " €)");
+                System.out.print("Ihre Wahl (0 = Ende): ");
+                int wahl = readInt(sc);
+                if (wahl == 0) break;
+
+                System.out.print("Menge: ");
+                int menge = readInt(sc);
+                if (menge <= 0) continue;
+
+                switch (wahl) {
+                    case 1:
+                        bestellungDesserts.append(menge).append("x Softeis Schokolade\n");
+                        summeDessert += menge * preisSoftEisSchoko;
+                        break;
+                    case 2:
+                        bestellungDesserts.append(menge).append("x Softeis Erdbeere\n");
+                        summeDessert += menge * preisSoftEisErdbeere;
+                        break;
+                    case 3:
+                        bestellungDesserts.append(menge).append("x Softeis Karamell\n");
+                        summeDessert += menge * preisSoftEisKaramell;
+                        break;
+                    case 4:
+                        bestellungDesserts.append(menge).append("x Hot Brownie\n");
+                        summeDessert += menge * preisHotBrownie;
+                        break;
+                    case 5:
+                        bestellungDesserts.append(menge).append("x Hot Brownie mit Eis\n");
+                        summeDessert += menge * preisHotBrownieEis;
+                        break;
+                    case 6:
+                        bestellungDesserts.append(menge).append("x Obstsalat\n");
+                        summeDessert += menge * preisObstsalat;
+                    case 7:
+                        bestellungDesserts.append(menge).append("x Churros Chocolate\n");
+                        summeDessert += menge * preisChurrosChocolate;
+                        break;
+                    default:
+                        System.out.println("Ungültige Auswahl.");
+                }
+            }
+        }
+        
         // -------- Gesamtsumme --------
         double gesamt = summeBurger + summeBeilage + summeSaucen + summeDrink + summeDessert + summeMenu;
 
@@ -394,6 +494,8 @@ public class AppEigene {
         if (bestellungBurger.length()   > 0) System.out.println("Burger:\n"   + bestellungBurger.toString().trim()   + " -> " + round(summeBurger)  + " €");
         if (bestellungBeilagen.length() > 0) System.out.println("Beilagen:\n" + bestellungBeilagen.toString().trim() + " -> " + round(summeBeilage) + " €");
         if (bestellungDrinks.length()   > 0) System.out.println("Getränke:\n" + bestellungDrinks.toString().trim()   + " -> " + round(summeDrink)   + " €");
+        if (bestellungSauce.length() > 0) System.out.println("Sauce:\n"       + bestellungSaucen.toString().trim()   + " -> " + round(summeSauce) + " €");
+        if (bestellungDessert.length()   > 0) System.out.println("Dessert:\n" + bestellungDessert.toString().trim()  + " -> " + round(summeDessert)   + " €");
         System.out.println("----------------------------");
         System.out.println("Gesamtpreis: " + round(gesamt) + " €");
         System.out.println("Bitte bezahlen Sie den Gesamtpreis: " + round(gesamt) + " € an der Kasse.");
