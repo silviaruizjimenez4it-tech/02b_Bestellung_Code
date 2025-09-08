@@ -12,7 +12,7 @@ public class AppEigene {
         final double preisChiliburger         = 4.50;
         final double preisChickenburger       = 4.00;
         final double preisDobbleburger        = 7.00;
-        final double preisChickenNugget(20er) = 9.75;
+        final double preisChickenNuggets      = 9.75;
 
         // Preise Beilagen- integriert
         final double preisPommes              = 3.50;
@@ -36,7 +36,7 @@ public class AppEigene {
         final double preisSprite              = 2.00;
         final double preisEistee              = 2.00;
         final double preisKaffee              = 1.50;
-        final double preisBier    (ab18)      = 3.00;    // Abfrage Volljährigkeit noch nicht integriert
+        final double preisBier                = 3.00;    // Abfrage Volljährigkeit noch nicht integriert
         final double preisWasser              = 1.50;
         final double preisSaft                = 1.50;
 
@@ -69,165 +69,165 @@ public class AppEigene {
         StringBuilder bestellungDrinks   = new StringBuilder();
         StringBuilder bestellungMenues   = new StringBuilder();
         StringBuilder bestellungSaucen   = new StringBuilder();
-        StringBuilder bestellungDessert  = new StringBuilder();
+        StringBuilder bestellungDesserts = new StringBuilder();
         
 
         System.out.println("----------------------------");
         System.out.println("Herzlich Willkommen bei MD, Ihre Bestellung bitte!");
 
-        // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
-        System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
-        if (ja(sc.nextLine())) {
-            while (true) {
-                System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
-                int mengeMenu = readInt(sc);
-                if (mengeMenu <= 0) break;
-                bestellungMenues.append(mengeMenu)
-                        .append("x Menü (")
-                        .append(burgerName).append(" + ")
-                        .append(beilageName).append(" + ")
-                        .append(sauceName).append(" + ")
-                        .append(drinkName).append(")\n");
-                summeMenu += mengeMenu * preisMenu;
-            }
-        }
-                System.out.println("----------------------------");
-                // Burgerwahl fürs Menü
-                System.out.println("Bitte wählen Sie den Burger für das Menü:");
-                System.out.println("1) Hamburger  2) Cheeseburger  3) Chilliburger  4) Chickenburger");
-                int burgerChoice = readInt(sc);
-                String burgerName;
-                switch (burgerChoice) {
-                    case 1:
-                        burgerName = "Hamburger";
-                        break;
-                    case 2:
-                        burgerName = "Cheeseburger";
-                        break;
-                    case 3:
-                        burgerName = "Chilliburger";
-                        break;
-                    case 4:
-                        burgerName = "Chickenburger";
-                        break;
-                    default:
-                        burgerName = "UnbekannterBurger";
-                        break;
-                }
+        // // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
+        // System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
+        // if (ja(sc.nextLine())) {
+        //     while (true) {
+        //         System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
+        //         int mengeMenu = readInt(sc);
+        //         if (mengeMenu <= 0) break;
+        //         bestellungMenues.append(mengeMenu)
+        //                 .append("x Menü (")
+        //                 .append(burgerName).append(" + ")
+        //                 .append(beilageName).append(" + ")
+        //                 .append(sauceName).append(" + ")
+        //                 .append(drinkName).append(")\n");
+        //         summeMenu += mengeMenu * preisMenu;
+        //     }
+        // }
+        //         System.out.println("----------------------------");
+        //         // Burgerwahl fürs Menü
+        //         System.out.println("Bitte wählen Sie den Burger für das Menü:");
+        //         System.out.println("1) Hamburger  2) Cheeseburger  3) Chilliburger  4) Chickenburger");
+        //         int burgerChoice = readInt(sc);
+        //         String burgerName;
+        //         switch (burgerChoice) {
+        //             case 1:
+        //                 burgerName = "Hamburger";
+        //                 break;
+        //             case 2:
+        //                 burgerName = "Cheeseburger";
+        //                 break;
+        //             case 3:
+        //                 burgerName = "Chiliburger";
+        //                 break;
+        //             case 4:
+        //                 burgerName = "Chickenburger";
+        //                 break;
+        //             default:
+        //                 burgerName = "UnbekannterBurger";
+        //                 break;
+        //         }
 
-                System.out.println("----------------------------");
-                // Beilagewahl fürs Menü
-                System.out.println("Bitte wählen Sie die Beilage für das Menü:");
-                System.out.println("1) Pommes  2) Chili-Cheese Fries  3) Caesar Salat  4) Curly fries   5) Kroketten");
-                int beilagenChoice = readInt(sc);
-                String beilageName;
-                switch (beilagenChoice) {
-                    case 1:
-                        beilageName = "Pommes";
-                        break;
-                    case 2:
-                        beilageName = "Chili-Cheese Fries";
-                        break;
-                    case 3:
-                        beilageName = "Caesar Salat";
-                        break;
-                    case 4:
-                        beilageName = "CurlyFries";
-                        break;
-                    case 5:
-                        beilageName = "Kroketten";
-                        break;
-                    default:
-                        beilageName = "Unbekannte Beilage";
-                        break;
-                }
+        //         System.out.println("----------------------------");
+        //         // Beilagewahl fürs Menü
+        //         System.out.println("Bitte wählen Sie die Beilage für das Menü:");
+        //         System.out.println("1) Pommes  2) Chili-Cheese Fries  3) Caesar Salat  4) Curly fries   5) Kroketten");
+        //         int beilagenChoice = readInt(sc);
+        //         String beilageName;
+        //         switch (beilagenChoice) {
+        //             case 1:
+        //                 beilageName = "Pommes";
+        //                 break;
+        //             case 2:
+        //                 beilageName = "Chili-Cheese Fries";
+        //                 break;
+        //             case 3:
+        //                 beilageName = "Caesar Salat";
+        //                 break;
+        //             case 4:
+        //                 beilageName = "CurlyFries";
+        //                 break;
+        //             case 5:
+        //                 beilageName = "Kroketten";
+        //                 break;
+        //             default:
+        //                 beilageName = "Unbekannte Beilage";
+        //                 break;
+        //         }
 
-                System.out.println("----------------------------");
-                // Saucewahl fürs Menü
-                System.out.println("Bitte wählen Sie eine Sauce für das Menü:");
-                System.out.println("1) Ketchup  2) Mayonaise  3) Remoulade  4) Curry   5)BBQ   6) Chili Cheese    7) Süß Sauer");
-                int sauceChoice = readInt(sc);
-                String sauceName;
-                switch (sauceChoice) {
-                    case 1:
-                        sauceName = "Ketchup";
-                        break;
-                    case 2:
-                        sauceName = "Mayonaise";
-                        break;
-                    case 3:
-                        sauceName = "Remoulade";
-                        break;
-                    case 4:
-                        sauceName = "Curry";
-                        break;
-                    case 5:
-                        sauceName = "BBQ";
-                        break;
-                    case 6:
-                        sauceName = "Chili Cheese";
-                        break;
-                    case 7:
-                        sauceName = "Süß Sauer";
-                        break;
-                    default:
-                        sauceName = "keine";
-                        break;
-                }
+        //         System.out.println("----------------------------");
+        //         // Saucewahl fürs Menü
+        //         System.out.println("Bitte wählen Sie eine Sauce für das Menü:");
+        //         System.out.println("1) Ketchup  2) Mayonaise  3) Remoulade  4) Curry   5)BBQ   6) Chili Cheese    7) Süß Sauer");
+        //         int saucenChoice = readInt(sc);
+        //         String sauceName;
+        //         switch (saucenChoice) {
+        //             case 1:
+        //                 sauceName = "Ketchup";
+        //                 break;
+        //             case 2:
+        //                 sauceName = "Mayonaise";
+        //                 break;
+        //             case 3:
+        //                 sauceName = "Remoulade";
+        //                 break;
+        //             case 4:
+        //                 sauceName = "Curry";
+        //                 break;
+        //             case 5:
+        //                 sauceName = "BBQ";
+        //                 break;
+        //             case 6:
+        //                 sauceName = "Chili Cheese";
+        //                 break;
+        //             case 7:
+        //                 sauceName = "Süß Sauer";
+        //                 break;
+        //             default:
+        //                 sauceName = "keine";
+        //                 break;
+        //         }
         
-                System.out.println("----------------------------");
-                // Getränkewahl fürs Menü
-                System.out.println("Bitte wählen Sie das Getränk für das Menü:");
-                System.out.println("1) Cola  2) Fanta  3) Sprite  4) Eistee  5) Kaffee   6) Wasser  7) Saft  8) Bier (ab 18)");
-                int drinkChoice = readInt(sc);
-                String drinkName;
-                switch (drinkChoice) {
-                    case 1:
-                        drinkName = "Cola";
-                        break;
-                    case 2:
-                        drinkName = "Fanta";
-                        break;
-                    case 3:
-                        drinkName = "Sprite";
-                        break;
-                    case 4:
-                        drinkName = "Eistee";
-                        break;
-                    case 5:
-                        drinkName = "Kaffee";
-                        break;
-                    case 6:
-                        drinkName = "Wasser";
-                        break;
-                    case 7:
-                        drinkName = "Saft";
-                        break;
-                    case 8:
-                        drinkName = "Bier";
-                        break;
-                    default:
-                        drinkName = "Unbekanntes Getränk";
-                        break;
-                }
+        //         System.out.println("----------------------------");
+        //         // Getränkewahl fürs Menü
+        //         System.out.println("Bitte wählen Sie das Getränk für das Menü:");
+        //         System.out.println("1) Cola  2) Fanta  3) Sprite  4) Eistee  5) Kaffee   6) Wasser  7) Saft  8) Bier (ab 18)");
+        //         int drinkChoice = readInt(sc);
+        //         String drinkName;
+        //         switch (drinkChoice) {
+        //             case 1:
+        //                 drinkName = "Cola";
+        //                 break;
+        //             case 2:
+        //                 drinkName = "Fanta";
+        //                 break;
+        //             case 3:
+        //                 drinkName = "Sprite";
+        //                 break;
+        //             case 4:
+        //                 drinkName = "Eistee";
+        //                 break;
+        //             case 5:
+        //                 drinkName = "Kaffee";
+        //                 break;
+        //             case 6:
+        //                 drinkName = "Wasser";
+        //                 break;
+        //             case 7:
+        //                 drinkName = "Saft";
+        //                 break;
+        //             case 8:
+        //                 drinkName = "Bier";
+        //                 break;
+        //             default:
+        //                 drinkName = "Unbekanntes Getränk";
+        //                 break;
+        //         }
 
-        System.out.println("----------------------------");
-        // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
-        System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
-        if (ja(sc.nextLine())) {
-            while (true) {
-                System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
-                int mengeMenu = readInt(sc);
-                if (mengeMenu <= 0) break;
-                bestellungMenues.append(mengeMenu)
-                        .append("x Menü (")
-                        .append(burgerName).append(" + ")
-                        .append(beilageName).append(" + ")
-                        .append(sauceName).append(" + ")
-                        .append(drinkName).append(")\n");
-                summeMenu += mengeMenu * preisMenu;
-            }
-        }
+        // System.out.println("----------------------------");
+        // // -------- Menüs (mehrfach, mit Wahlmöglichkeiten) --------
+        // System.out.print("Möchten Sie ein Menü bestellen? (j/n): ");
+        // if (ja(sc.nextLine())) {
+        //     while (true) {
+        //         System.out.print("Wie viele Menüs möchten Sie? (0 = Ende): ");
+        //         int mengeMenu = readInt(sc);
+        //         if (mengeMenu <= 0) break;
+        //         bestellungMenues.append(mengeMenu)
+        //                 .append("x Menü (")
+        //                 .append(burgerName).append(" + ")
+        //                 .append(beilageName).append(" + ")
+        //                 .append(sauceName).append(" + ")
+        //                 .append(drinkName).append(")\n");
+        //         summeMenu += mengeMenu * preisMenu1;
+        //     }
+        // }
 
         // -------- Burger (mehrfach, mit Menge) --------
        System.out.print("\nMöchten Sie Burger extra bestellen? (j/n): ");
@@ -235,7 +235,7 @@ public class AppEigene {
         while (true) {
             System.out.println("1) Hamburger (" + preisHamburger + " €)");
             System.out.println("2) Cheeseburger (" + preisCheeseburger + " €)b");
-            System.out.println("3) Chilliburger (" + preisChiliurger + " €)");
+            System.out.println("3) Chilliburger (" + preisChiliburger + " €)");
             System.out.println("4) Chickenburger (" + preisChickenburger + " €)");
             System.out.println("5) Dobbleburger (" + preisDobbleburger + " €)");
             System.out.println("6) 20 Chicken Nuggets (" + preisChickenNuggets + " €)");
@@ -258,7 +258,7 @@ public class AppEigene {
                     break;
                 case 3:
                     bestellungBurger.append(menge).append("x Chilliburger\n");
-                    summeBurger += menge * preisChiliBurger;
+                    summeBurger += menge * preisChiliburger;
                     break;
                 case 4:
                     bestellungBurger.append(menge).append("x Chickenburger\n");
@@ -266,7 +266,7 @@ public class AppEigene {
                     break;
                 case 5:
                     bestellungBurger.append(menge).append("x Dobbleburger\n");
-                    summeBurger += menge * preisDoppleburger;
+                    summeBurger += menge * preisDobbleburger;
                     break;
                 case 6:
                     bestellungBurger.append(menge).append("x ChickenNuggets\n");
@@ -282,10 +282,10 @@ public class AppEigene {
         if (ja(sc.nextLine())) {
             while (true) {
                 System.out.println("1) Pommes (" + preisPommes + " €)");
-                System.out.println("2) Chili-Cheese Fries (" + preisChiliFries + " €)");
-                System.out.println("3) Caesar Salat (" + preisSalat + " €)");
-                System.out.println("4) Curly Fries (" + preisPommes + " €)");
-                System.out.println("5) Kroketten (" + preisChiliFries + " €)");
+                System.out.println("2) Chili-Cheese Fries (" + preisChiliCheeseFries + " €)");
+                System.out.println("3) Caesar Salat (" + preisCesarSalat + " €)");
+                System.out.println("4) Curly Fries (" + preisCurlyFries + " €)");
+                System.out.println("5) Kroketten (" + preisKroketten + " €)");
                 System.out.print("Ihre Wahl (0 = Ende): ");
                 int wahl = readInt(sc);
                 if (wahl == 0) break;
@@ -301,11 +301,11 @@ public class AppEigene {
                         break;
                     case 2:
                         bestellungBeilagen.append(menge).append("x Chili-Cheese Fries\n");
-                        summeBeilage += menge * preisChiliFries;
+                        summeBeilage += menge * preisChiliCheeseFries;
                         break;
                     case 3:
                         bestellungBeilagen.append(menge).append("x Caesar Salat\n");
-                        summeBeilage += menge * preisSalat;
+                        summeBeilage += menge * preisCesarSalat;
                         break;
                     case 4:
                         bestellungBeilagen.append(menge).append("x Curly Fries\n");
@@ -342,31 +342,31 @@ public class AppEigene {
 
                 switch (wahl) {
                     case 1:
-                        bestellungSauces.append(menge).append("x Ketchup\n");
-                        summeSauce += menge * preisKetchup;
+                        bestellungSaucen.append(menge).append("x Ketchup\n");
+                        summeSaucen += menge * preisKetchup;
                         break;
                     case 2:
-                        bestellungSauces.append(menge).append("x Mayonaise\n");
-                        summeSauce += menge * preisMayonaise;
+                        bestellungSaucen.append(menge).append("x Mayonaise\n");
+                        summeSaucen += menge * preisMayonaise;
                         break;
                     case 3:
-                        bestellungSauces.append(menge).append("x Remoulade\n");
-                        summeSauce += menge * preisRemoulade;
+                        bestellungSaucen.append(menge).append("x Remoulade\n");
+                        summeSaucen += menge * preisRemoulade;
                         break;
                     case 4:
-                        bestellungSauces.append(menge).append("x Curry\n");
-                        summeSauce += menge * preisCurry;
+                        bestellungSaucen.append(menge).append("x Curry\n");
+                        summeSaucen += menge * preisCurry;
                         break;
                     case 5:
-                        bestellungSauces.append(menge).append("x BBQ\n");
-                        summeSauce += menge * preisBBQ;
+                        bestellungSaucen.append(menge).append("x BBQ\n");
+                        summeSaucen += menge * preisBBQ;
                         break;
                     case 6:
-                        bestellungSauces.append(menge).append("x Chili Cheese\n");
-                        summeSauce += menge * preisChiliCheese;
+                        bestellungSaucen.append(menge).append("x Chili Cheese\n");
+                        summeSaucen += menge * preisChiliCheese;
                     case 7:
-                        bestellungSauces.append(menge).append("x Süß Sauer\n");
-                        summeSauce += menge * preisSuessSauer;
+                        bestellungSaucen.append(menge).append("x Süß Sauer\n");
+                        summeSaucen += menge * preisSuessSauer;
                         break;
                     default:
                         System.out.println("Ungültige Auswahl.");
@@ -437,7 +437,7 @@ public class AppEigene {
         if (ja(sc.nextLine())) {
             while (true) {
                 System.out.println("1) Softeis Schokolade (" + preisSoftEisSchoko + " €)");
-                System.out.println("2) Softeis Erdbeere (" + preisSoftEisErdbeere + " €)");
+                System.out.println("2) Softeis Erdbeere (" + preisSoftEisErdbeer + " €)");
                 System.out.println("3) Softeis Karamell (" + preisSoftEisKaramell + " €)");
                 System.out.println("4) Hot Brownie (" + preisEistee + " €)");
                 System.out.println("5) Hot Brownie mit Eis (" + preisHotBrownie + " €)");
@@ -458,7 +458,7 @@ public class AppEigene {
                         break;
                     case 2:
                         bestellungDesserts.append(menge).append("x Softeis Erdbeere\n");
-                        summeDessert += menge * preisSoftEisErdbeere;
+                        summeDessert += menge * preisSoftEisErdbeer;
                         break;
                     case 3:
                         bestellungDesserts.append(menge).append("x Softeis Karamell\n");
@@ -494,8 +494,8 @@ public class AppEigene {
         if (bestellungBurger.length()   > 0) System.out.println("Burger:\n"   + bestellungBurger.toString().trim()   + " -> " + round(summeBurger)  + " €");
         if (bestellungBeilagen.length() > 0) System.out.println("Beilagen:\n" + bestellungBeilagen.toString().trim() + " -> " + round(summeBeilage) + " €");
         if (bestellungDrinks.length()   > 0) System.out.println("Getränke:\n" + bestellungDrinks.toString().trim()   + " -> " + round(summeDrink)   + " €");
-        if (bestellungSauce.length() > 0) System.out.println("Sauce:\n"       + bestellungSaucen.toString().trim()   + " -> " + round(summeSauce) + " €");
-        if (bestellungDessert.length()   > 0) System.out.println("Dessert:\n" + bestellungDessert.toString().trim()  + " -> " + round(summeDessert)   + " €");
+        if (bestellungSaucen.length() > 0) System.out.println("Sauce:\n"       + bestellungSaucen.toString().trim()   + " -> " + round(summeSauce) + " €");
+        if (bestellungDesserts.length()   > 0) System.out.println("Dessert:\n" + bestellungDesserts.toString().trim()  + " -> " + round(summeDessert)   + " €");
         System.out.println("----------------------------");
         System.out.println("Gesamtpreis: " + round(gesamt) + " €");
         System.out.println("Bitte bezahlen Sie den Gesamtpreis: " + round(gesamt) + " € an der Kasse.");
