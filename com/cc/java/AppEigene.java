@@ -30,7 +30,7 @@ public class AppEigene {
         final double preisChiliCheese         = 0.50;
         final double preisSuessSauer          = 0.50;
         
-        // Preise Getränke- teilweise integriert
+        // Preise Getränke- integriert
         final double preisCola                = 2.00;
         final double preisFanta               = 2.00;
         final double preisSprite              = 2.00;
@@ -334,6 +334,11 @@ public class AppEigene {
                 System.out.println("1) Cola (" + preisCola + " €)");
                 System.out.println("2) Fanta (" + preisFanta + " €)");
                 System.out.println("3) Sprite (" + preisSprite + " €)");
+                System.out.println("4) Eistee (" + preisEistee + " €)");
+                System.out.println("5) Kaffee (" + preisKaffee + " €)");
+                System.out.println("6) Wasser (" + preisWasser + " €)");
+                System.out.println("7) Saft (" + preisSaft + " €)");
+                System.out.println("2) Bier (" + preisBier + " €)");
                 System.out.print("Ihre Wahl (0 = Ende): ");
                 int wahl = readInt(sc);
                 if (wahl == 0) break;
@@ -355,6 +360,25 @@ public class AppEigene {
                         bestellungDrinks.append(menge).append("x Sprite\n");
                         summeDrink += menge * preisSprite;
                         break;
+                    case 4:
+                        bestellungDrinks.append(menge).append("x Eistee\n");
+                        summeDrink += menge * preisEistee;
+                        break;
+                    case 5:
+                        bestellungDrinks.append(menge).append("x Kaffee\n");
+                        summeDrink += menge * preisKaffee;
+                        break;
+                    case 6:
+                        bestellungDrinks.append(menge).append("x Wasser\n");
+                        summeDrink += menge * preisWasser;
+                    case 7:
+                        bestellungDrinks.append(menge).append("x Saft\n");
+                        summeDrink += menge * preisSaft;
+                        break;
+                    case 8:
+                        bestellungDrinks.append(menge).append("x Bier\n");
+                        summeDrink += menge * preisBier;
+                        break;
                     default:
                         System.out.println("Ungültige Auswahl.");
                 }
@@ -362,7 +386,7 @@ public class AppEigene {
         }
 
         // -------- Gesamtsumme --------
-        double gesamt = summeBurger + summeBeilage + summeDrink + summeMenu;
+        double gesamt = summeBurger + summeBeilage + summeSaucen + summeDrink + summeDessert + summeMenu;
 
         // -------- Ausgabe --------
         System.out.println("\n===== Ihre Bestellung =====");
